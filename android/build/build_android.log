@@ -1,5 +1,5 @@
 
-7.9.2017, 19:02:04
+7.9.2017, 19:51:28
 
 Operating System
   Name                        = Fedora
@@ -1002,4 +1002,4 @@ Compiling all java source files generated
 [INFO]   Packaging the module
 [INFO]   Creating module zip
 [INFO]   Writing module zip: /home/miga/dev/ti.calendar/android/dist/ti.calendar-android-1.0.0.zip
-[INFO]   Project built successfully in 14s 437ms
+[INFO]   Project built successfully in 19s 105ms

@@ -22,6 +22,7 @@ import org.appcelerator.titanium.view.TiUIView;
 
 import android.app.Activity;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.*;
 import android.view.LayoutInflater;
 import android.view.View;
 import java.io.IOException;
@@ -40,20 +41,19 @@ public class ExampleProxy extends TiViewProxy
 		public ExampleView(TiViewProxy proxy) {
 			super(proxy);
 			String packageName = proxy.getActivity().getPackageName();
-            Resources resources = proxy.getActivity().getResources();
-            View videoWrapper;
-            int idLayout = -1;
-            int idRoundview = -1;
+			Resources resources = proxy.getActivity().getResources();
+			View viewWrapper;
 
-            idLayout = resources.getIdentifier("layout", "layout", packageName);
-            idRoundview = resources.getIdentifier("calendarView", "id", packageName);
+			int resId_viewHolder = -1;
+			int resId_lotti = -1;
+			resId_viewHolder = resources.getIdentifier("layout", "layout", packageName);
+			resId_lotti = resources.getIdentifier("calendarView", "id", packageName);
 
-            LayoutInflater inflater = LayoutInflater.from(getActivity());
-            videoWrapper = inflater.inflate(idLayout, null);
-            calendarView = (MaterialCalendarView)videoWrapper.findViewById(idRoundview);
+			LayoutInflater inflater = LayoutInflater.from(proxy.getActivity());
+			viewWrapper = inflater.inflate(resId_viewHolder, null);
 
-
-			setNativeView(calendarView);
+			calendarView = (MaterialCalendarView)viewWrapper.findViewById(resId_lotti);
+			setNativeView(viewWrapper);
 		}
 
 		@Override
@@ -73,6 +73,7 @@ public class ExampleProxy extends TiViewProxy
 	@Override
 	public TiUIView createView(Activity activity)
 	{
+		Log.i(LCAT, "Create view");
 		TiUIView view = new ExampleView(this);
 		view.getLayoutParams().autoFillsHeight = true;
 		view.getLayoutParams().autoFillsWidth = true;
@@ -92,9 +93,9 @@ public class ExampleProxy extends TiViewProxy
 
 	// Methods
 	@Kroll.method
-	public void printMessage(String message)
-	{
-		Log.d(LCAT, "printing message: " + message);
+	public void init() {
+		// calendarView.setTileHeight(132);
+		calendarView.state().edit().commit();
 	}
 
 

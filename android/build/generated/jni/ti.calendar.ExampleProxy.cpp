@@ -82,7 +82,7 @@ Local<FunctionTemplate> ExampleProxy::getProxyTemplate(Isolate* isolate)
 	titanium::ProxyFactory::registerProxyPair(javaClass, *t);
 
 	// Method bindings --------------------------------------------------------
-	titanium::SetProtoMethod(isolate, t, "printMessage", ExampleProxy::printMessage);
+	titanium::SetProtoMethod(isolate, t, "init", ExampleProxy::init);
 	titanium::SetProtoMethod(isolate, t, "getMessage", ExampleProxy::getMessage);
 	titanium::SetProtoMethod(isolate, t, "setMessage", ExampleProxy::setMessage);
 
@@ -109,9 +109,9 @@ Local<FunctionTemplate> ExampleProxy::getProxyTemplate(Isolate* isolate)
 }
 
 // Methods --------------------------------------------------------------------
-void ExampleProxy::printMessage(const FunctionCallbackInfo<Value>& args)
+void ExampleProxy::init(const FunctionCallbackInfo<Value>& args)
 {
-	LOGD(TAG, "printMessage()");
+	LOGD(TAG, "init()");
 	Isolate* isolate = args.GetIsolate();
 	HandleScope scope(isolate);
 
@@ -122,9 +122,9 @@ void ExampleProxy::printMessage(const FunctionCallbackInfo<Value>& args)
 	}
 	static jmethodID methodID = NULL;
 	if (!methodID) {
-		methodID = env->GetMethodID(ExampleProxy::javaClass, "printMessage", "(Ljava/lang/String;)V");
+		methodID = env->GetMethodID(ExampleProxy::javaClass, "init", "()V");
 		if (!methodID) {
-			const char *error = "Couldn't find proxy method 'printMessage' with signature '(Ljava/lang/String;)V'";
+			const char *error = "Couldn't find proxy method 'init' with signature '()V'";
 			LOGE(TAG, error);
 				titanium::JSException::Error(isolate, error);
 				return;
@@ -139,29 +139,7 @@ void ExampleProxy::printMessage(const FunctionCallbackInfo<Value>& args)
 
 	titanium::Proxy* proxy = titanium::Proxy::unwrap(holder);
 
-	if (args.Length() < 1) {
-		char errorStringBuffer[100];
-		sprintf(errorStringBuffer, "printMessage: Invalid number of arguments. Expected 1 but got %d", args.Length());
-		titanium::JSException::Error(isolate, errorStringBuffer);
-		return;
-	}
-
-	jvalue jArguments[1];
-
-
-
-
-	
-
-	if (!args[0]->IsNull()) {
-		Local<Value> arg_0 = args[0];
-		jArguments[0].l =
-			titanium::TypeConverter::jsValueToJavaString(
-				isolate,
-				env, arg_0);
-	} else {
-		jArguments[0].l = NULL;
-	}
+	jvalue* jArguments = 0;
 
 	jobject javaProxy = proxy->getJavaObject();
 	env->CallVoidMethodA(javaProxy, methodID, jArguments);
@@ -170,9 +148,6 @@ void ExampleProxy::printMessage(const FunctionCallbackInfo<Value>& args)
 		env->DeleteLocalRef(javaProxy);
 	}
 
-
-
-				env->DeleteLocalRef(jArguments[0].l);
 
 
 	if (env->ExceptionCheck()) {

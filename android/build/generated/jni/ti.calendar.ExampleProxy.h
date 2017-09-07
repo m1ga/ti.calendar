@@ -30,7 +30,7 @@ private:
 	static v8::Persistent<v8::FunctionTemplate> proxyTemplate;
 
 	// Methods -----------------------------------------------------------
-	static void printMessage(const v8::FunctionCallbackInfo<v8::Value>&);
+	static void init(const v8::FunctionCallbackInfo<v8::Value>&);
 	static void getMessage(const v8::FunctionCallbackInfo<v8::Value>&);
 	static void setMessage(const v8::FunctionCallbackInfo<v8::Value>&);
 
