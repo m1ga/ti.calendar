@@ -1,0 +1,22 @@
+%define lookup-function-name lookupGeneratedInit
+%define class-name TiCalendarBindings
+%{
+
+#include <string.h>
+#include <v8.h>
+#include <KrollBindings.h>
+
+#include "ti.calendar.ExampleProxy.h"
+#include "ti.calendar.TiCalendarModule.h"
+
+
+namespace titanium {
+namespace bindings {
+%}
+struct BindEntry;
+%%
+ti.calendar.TiCalendarModule,::ti::calendar::TiCalendarModule::bindProxy,::ti::calendar::TiCalendarModule::dispose
+ti.calendar.ExampleProxy,::ti::calendar::ticalendar::ExampleProxy::bindProxy,::ti::calendar::ticalendar::ExampleProxy::dispose
+%%
+}
+}
