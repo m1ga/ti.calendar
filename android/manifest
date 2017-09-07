@@ -15,4 +15,4 @@ name: ti.calendar
 moduleid: ti.calendar
 guid: 83fe385d-c675-4fcd-9bed-4804fa7af7b5
 platform: android
-minsdk: 6.2.0.v20170831112315
+minsdk: 6.0.0.GA

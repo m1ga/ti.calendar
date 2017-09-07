@@ -1,5 +1,5 @@
 
-7.9.2017, 18:56:19
+7.9.2017, 19:02:04
 
 Operating System
   Name                        = Fedora
@@ -994,7 +994,7 @@ Generating runtime bindings
 [INFO]   Producing [ModuleName]Bootstrap files using /home/miga/dev/ti.calendar/android/build/generated/json/org/appcelerator/titanium/bindings/ti.calendar.json
 Generating BootstrapJS.cpp from bootstrap.js
 [INFO]   Verifying build architectures
-[INFO]   No native compiled libraries found, assume architectures are sane
+[INFO]   Build architectures are sane
 [INFO]   Running the Android NDK ndk-build
 [DEBUG]  Running: /home/miga/tools/android-ndk/ndk-build TI_MOBILE_SDK=/home/miga/.titanium/mobilesdk/linux/6.2.0.v20170831112315 NDK_PROJECT_PATH=/home/miga/dev/ti.calendar/android/build/generated NDK_APPLICATION_MK=/home/miga/dev/ti.calendar/android/build/generated/Application.mk PYTHON=python V=0
 Compiling all java source files generated
@@ -1002,4 +1002,4 @@ Compiling all java source files generated
 [INFO]   Packaging the module
 [INFO]   Creating module zip
 [INFO]   Writing module zip: /home/miga/dev/ti.calendar/android/dist/ti.calendar-android-1.0.0.zip
-[INFO]   Project built successfully in 14s 344ms
+[INFO]   Project built successfully in 14s 437ms
