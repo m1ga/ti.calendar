@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout android:background="#00ffffff" android:layout_height="match_parent" android:layout_width="match_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
-	<com.prolificinteractive.materialcalendarview.MaterialCalendarView xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/calendarView" android:layout_gravity="center" android:scaleType="fitXY" android:layout_width="match_parent" android:layout_height="match_parent" app:mcv_showOtherDates="all" app:mcv_selectionColor="#00F"/>
-</LinearLayout>

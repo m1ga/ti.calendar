@@ -2,9 +2,9 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 1.0.0
-apiversion: 3
-architectures: armeabi-v7a x86
+version: 2.0.0
+apiversion: 4
+architectures: arm64-v8a armeabi-v7a x86 x86_64
 description: ti.calendar
 author: Michael Gangolf
 license: Specify your license
@@ -15,4 +15,4 @@ name: ti.calendar
 moduleid: ti.calendar
 guid: 83fe385d-c675-4fcd-9bed-4804fa7af7b5
 platform: android
-minsdk: 6.0.0.GA
+minsdk: 9.0.0
